@@ -1,0 +1,17 @@
+import cv2
+import numpy as np
+cap = cv2.VideoCapture(0)
+count = 0
+while count<50:
+    ret, frame = cap.read()
+    count += 1
+    key = cv2.waitKey(10)
+    file_name_path = 'C:/Users/ADMIN/Desktop/mlops-ws/faceR_data_collection/test_data/Nikita'+ str(count) + '.jpg'
+    cv2.imwrite(file_name_path, frame)
+    cv2.imshow('Face Cropper', frame)
+    if cv2.waitKey(1) == 13:
+            cv2.destroyAllWindows()
+            webcam.release()
+            break
+cap.release()
+cv2.destroyAllWindows()
